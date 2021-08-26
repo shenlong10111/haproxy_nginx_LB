@@ -16,7 +16,7 @@ services:
 
   haproxy:
     container_name: haproxy
-    image: shenlong23/lb_haproxy:tls
+    image: shenlong23/lb_haproxy:1.1
     depends_on:
       - nginx1
       - nginx2
