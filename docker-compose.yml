@@ -1,0 +1,28 @@
+version: '3.7'
+ 
+services:
+
+  nginx1:
+    container_name: nginx1
+    image: shenlong23/lb_nginx1:1.0
+    expose:
+      - 80
+
+  nginx2:
+    container_name: nginx2
+    image: shenlong23/lb_nginx2:1.0
+    expose:
+      - 80
+
+  haproxy:
+    container_name: haproxy
+    image: shenlong23/lb_haproxy:1.0
+    depends_on:
+      - nginx1
+      - nginx2
+    ports:
+      - "8080:8080"
+      - "443:443"
+    expose:
+      - 8080
+      - 443
